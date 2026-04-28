@@ -27,7 +27,7 @@
             Votre caviste de confiance au Bénin. Sélection de vins avec et sans alcool, livrés partout à Cotonou.
           </p>
           <p class="text-xs text-white/30 mb-6">
-            RCCM RB/COT/23-B-35651 · IFU 3202361071177
+            RCCM RB/COT/23-B-35651 · IFU 320236107117766
           </p>
 
           <!-- Réseaux -->
