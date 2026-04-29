@@ -30,7 +30,7 @@
       <div class="lg:col-span-7 flex flex-col">
 
         <!-- Badge -->
-        <div class="flex items-center gap-3 self-start mb-8 animate-fade-up">
+        <!-- <div class="flex items-center gap-3 self-start mb-8 animate-fade-up">
           <span class="relative flex h-2 w-2">
             <span class="absolute inline-flex h-full w-full rounded-full bg-[#F5C400] opacity-75 animate-ping"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-[#F5C400]"></span>
@@ -38,11 +38,11 @@
           <span class="px-4 py-1.5 border border-[#F5C400]/40 text-[#F5C400] text-[10px] tracking-[0.3em] uppercase font-semibold backdrop-blur-md bg-[#F5C400]/5 rounded-full">
             Nouvelle collection · Printemps 2026
           </span>
-        </div>
+        </div> -->
 
         <!-- Title -->
-        <h1 class="font-display text-white leading-[1.02] mb-8 animate-fade-up delay-100"
-            style="font-size: clamp(3rem, 8vw, 6.5rem);">
+        <h1 class="font-display text-4xl lg:text-8xl md:text-7xl text-white leading-[1.02] mb-8 animate-fade-up delay-100">
+          <!-- style="font-size: clamp(3rem, 8vw, 6.5rem);" -->
           L'art du vin,<br/>
           <span class="italic font-normal text-gradient-gold">sans compromis.</span>
         </h1>
@@ -110,7 +110,7 @@
             <h3 class="font-display text-white text-2xl mb-2 leading-tight">Château Margaux 2018</h3>
             <p class="text-white/50 text-xs mb-5">Bordeaux · Grand Cru Classé · 750ml</p>
 
-            <div class="flex items-end justify-between pt-4 border-t border-white/10">
+            <!-- <div class="flex items-end justify-between pt-4 border-t border-white/10">
               <div>
                 <p class="text-[9px] tracking-widest uppercase text-white/40 mb-0.5">Prix membre</p>
                 <p class="font-display text-2xl text-[#F5C400]">189 000 <span class="text-sm">FCFA</span></p>
@@ -118,7 +118,7 @@
               <button class="px-4 py-2.5 bg-[#F5C400] hover:bg-white text-[#16336a] text-[11px] tracking-widest uppercase font-bold rounded-sm transition-colors">
                 Ajouter
               </button>
-            </div>
+            </div> -->
           </div>
         </div>
 
@@ -155,7 +155,7 @@
 <script setup>
 const stats = [
   { value: '200+', label: 'Références' },
-  { value: '12',   label: 'Pays d\'origine' },
+  // { value: '12',   label: 'Pays d\'origine' },
   { value: '4.9',  label: 'Note moyenne' },
 ]
 </script>

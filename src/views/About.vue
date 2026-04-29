@@ -14,7 +14,7 @@
           <div class="gold-divider mb-6 text-[#F5C400] text-[10px] tracking-[0.4em] uppercase font-semibold">
             Notre Maison
           </div>
-          <h1 class="font-display text-white leading-[1.02] mb-8" style="font-size: clamp(3rem, 7vw, 5.5rem);">
+          <h1 class="font-display text-white leading-[1.02] mb-8 text-4xl lg:text-8xl md:text-7xl" >
             Une passion,<br/>
             <span class="italic text-gradient-gold">un savoir-faire,</span><br/>
             une histoire.
