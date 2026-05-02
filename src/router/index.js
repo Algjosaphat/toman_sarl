@@ -5,9 +5,9 @@ import Shop from '../views/Shop.vue'
 import Contact from '../views/Contact.vue'
 
 const routes = [
-  { path: '/',        name: 'Home',    component: Home,    meta: { title: 'Toman SARL · L\'art du vin' } },
-  { path: '/shop',    name: 'Shop',    component: Shop,    meta: { title: 'La Cave · Toman SARL' } },
-  { path: '/about',   name: 'About',   component: About,   meta: { title: 'Notre Maison · Toman SARL' } },
+  { path: '/', name: 'Home', component: Home, meta: { title: 'Toman SARL · L\'art du vin' } },
+  { path: '/shop', name: 'Shop', component: Shop, meta: { title: 'La Cave · Toman SARL' } },
+  { path: '/about', name: 'About', component: About, meta: { title: 'Notre Maison · Toman SARL' } },
   { path: '/contact', name: 'Contact', component: Contact, meta: { title: 'Nous contacter · Toman SARL' } },
 ]
 

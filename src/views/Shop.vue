@@ -93,7 +93,7 @@
               </div>
 
               <!-- Region -->
-              <div class="bg-white border border-stone-200 rounded-sm p-6 mb-4">
+              <!-- <div class="bg-white border border-stone-200 rounded-sm p-6 mb-4">
                 <h3 class="font-display text-lg text-[#16336a] mb-4">Région</h3>
                 <div class="flex flex-wrap gap-2">
                   <button
@@ -108,7 +108,7 @@
                     {{ r }}
                   </button>
                 </div>
-              </div>
+              </div> -->
 
               <!-- Reset -->
               <button v-if="activeFilterCount > 0" @click="resetFilters" class="w-full text-center py-3 text-xs uppercase tracking-widest text-stone-500 hover:text-[#22529C] transition-colors">
@@ -155,21 +155,6 @@
               @add-to-cart="handleAddToCart"
             />
           </div>
-
-          <!-- Pagination (mock) -->
-          <div v-if="filteredWines.length > 0" class="mt-12 flex items-center justify-center gap-2">
-            <button class="w-10 h-10 flex items-center justify-center border border-stone-200 hover:border-[#22529C] hover:text-[#22529C] transition-colors rounded-sm">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-            </button>
-            <button v-for="n in 3" :key="n" class="w-10 h-10 flex items-center justify-center text-sm rounded-sm transition-colors"
-                    :class="n === 1 ? 'bg-[#22529C] text-white' : 'border border-stone-200 hover:border-[#22529C] hover:text-[#22529C]'">
-              {{ n }}
-            </button>
-            <span class="text-stone-400 px-2">…</span>
-            <button class="w-10 h-10 flex items-center justify-center border border-stone-200 hover:border-[#22529C] hover:text-[#22529C] transition-colors rounded-sm">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
         </div>
       </div>
     </section>
@@ -180,10 +165,15 @@
 import { ref, computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import WineCard from '../components/ui/WineCard.vue'
-import Image from "../assets/image.jpeg"
-import Image1 from "../assets/image1.jpeg"
-import Image2 from "../assets/image2.jpeg"
-import Image3 from "../assets/image3.jpeg"
+
+// ─── Product images ──────────────────────────────────────────────────────────
+// Import each bottle image by its original filename (place them in src/assets/wines/)
+import ImgWhiteGrapeJuice from '@/assets/Whit_Grape_Juice_7000F_ss_alcool.jpeg'
+import ImgMerlot from '@/assets/Merlot_2023_9000f.jpeg'
+import ImgRedGrapeJuice from '@/assets/Red_Grape-Juice_7000f_ss_alcool.jpeg'
+import ImgSauvignonBlanc from '@/assets/Sauvignon_blanc_8000f.jpeg'
+import ImgShiraz from '@/assets/Shiraz_2023_8800f.jpeg'
+import ImgSparklingWine from '@/assets/Sparkling_Wine_8500f.jpeg'
 
 const route = useRoute()
 
@@ -195,40 +185,159 @@ const selectedRegions = ref([])
 
 watch(() => route.query.categorie, (v) => { if (v) selectedCategory.value = v })
 
+// ─── Filter meta ─────────────────────────────────────────────────────────────
 const categories = [
-  { value: 'all',         label: 'Tous les vins' },
-  { value: 'rouge',       label: 'Vins Rouges' },
-  { value: 'blanc',       label: 'Vins Blancs' },
-  { value: 'rose',        label: 'Vins Rosés' },
-  { value: 'champagne',   label: 'Champagnes' },
+  { value: 'all', label: 'Tous les produits' },
+  { value: 'rouge', label: 'Vins Rouges' },
+  { value: 'blanc', label: 'Vins Blancs' },
+  { value: 'petillant', label: 'Vins Pétillants' },
   { value: 'sans-alcool', label: 'Sans Alcool' },
 ]
 
 const priceRanges = [
-  { value: 'all',  label: 'Tous les prix' },
-  { value: '0-15000',     label: 'Moins de 15 000 FCFA' },
-  { value: '15000-30000', label: '15 000 – 30 000 FCFA' },
-  { value: '30000-60000', label: '30 000 – 60 000 FCFA' },
-  { value: '60000-9999999', label: 'Plus de 60 000 FCFA' },
+  { value: 'all', label: 'Tous les prix' },
+  { value: '0-8000', label: 'Moins de 8 000 FCFA' },
+  { value: '8000-9000', label: '8 000 – 9 000 FCFA' },
+  { value: '9000-9999999', label: 'Plus de 9 000 FCFA' },
 ]
 
-const regions = ['Bordeaux', 'Bourgogne', 'Loire', 'Provence', 'Champagne', 'Rioja', 'Toscane', 'Espagne']
+const regions = ['Stellenbosch']
 
+// ─── Product catalogue ───────────────────────────────────────────────────────
+/**
+ * All prices are expressed in FCFA as shown on the product filenames.
+ * Alcohol data is taken from the bottle labels provided.
+ *
+ * Fields:
+ *   id          – unique number
+ *   name        – commercial name
+ *   producer    – estate / brand
+ *   region      – appellation / origin
+ *   vintage     – millésime or production year
+ *   type        – style descriptor shown under the name
+ *   price       – price in FCFA (integer)
+ *   alc         – alcohol % (string, "0%" for non-alcoholic)
+ *   isAlcoholFree – boolean
+ *   image       – imported asset
+ *   badge       – promotional chip (null if none)
+ *   rating      – display rating out of 5
+ *   cat         – category key (must match categories above)
+ *   awards      – short award labels (array of strings)
+ *   description – tasting / label notes (English)
+ *   pairing     – food pairing suggestion
+ */
 const wines = [
-  { id: 1,  name: 'Château Margaux',     region: 'Bordeaux',  vintage: '2018', type: 'Rouge · 750ml', price: 189000, isAlcoholFree: false, image: Image1, badge: 'Coup de cœur', rating: '4.9', cat: 'rouge' },
-  { id: 2,  name: 'Natureo Muscat',      region: 'Espagne',   vintage: '2023', type: 'Sans alcool',   price: 8500,   isAlcoholFree: true,  image: Image2, badge: 'Sans alcool',  rating: '4.6', cat: 'sans-alcool' },
-  { id: 3,  name: 'Pouilly-Fumé',        region: 'Loire',     vintage: '2022', type: 'Blanc · 750ml', price: 32000,  isAlcoholFree: false, image: Image3, badge: null,           rating: '4.8', cat: 'blanc' },
-  { id: 4,  name: 'Chablis Premier Cru', region: 'Bourgogne', vintage: '2021', type: 'Blanc · 750ml', price: 48000,  isAlcoholFree: false, image: Image,  badge: 'Nouveau',      rating: '4.9', cat: 'blanc' },
-  { id: 5,  name: 'Domaine Tempier',     region: 'Provence',  vintage: '2022', type: 'Rosé · 750ml',  price: 28000,  isAlcoholFree: false, image: Image2, badge: null,           rating: '4.7', cat: 'rose' },
-  { id: 6,  name: 'Côtes du Rhône',      region: 'Bourgogne', vintage: '2020', type: 'Rouge · 750ml', price: 18000,  isAlcoholFree: false, image: Image1, badge: 'Best-seller',  rating: '4.8', cat: 'rouge' },
-  { id: 7,  name: 'Sancerre',            region: 'Loire',     vintage: '2023', type: 'Blanc · 750ml', price: 24000,  isAlcoholFree: false, image: Image3, badge: null,           rating: '4.7', cat: 'blanc' },
-  { id: 8,  name: 'Lussory Premium',     region: 'Espagne',   vintage: '2023', type: 'Sans alcool',   price: 7900,   isAlcoholFree: true,  image: Image,  badge: 'Sans alcool',  rating: '4.5', cat: 'sans-alcool' },
-  { id: 9,  name: 'Saint-Émilion',       region: 'Bordeaux',  vintage: '2019', type: 'Rouge · 750ml', price: 65000,  isAlcoholFree: false, image: Image1, badge: null,           rating: '4.8', cat: 'rouge' },
-  { id: 10, name: 'Champagne Brut',      region: 'Champagne', vintage: 'NV',   type: 'Effervescent',  price: 55000,  isAlcoholFree: false, image: Image,  badge: 'Fêtes',        rating: '4.9', cat: 'champagne' },
-  { id: 11, name: 'Whispering Angel',    region: 'Provence',  vintage: '2023', type: 'Rosé · 750ml',  price: 22000,  isAlcoholFree: false, image: Image2, badge: 'Best-seller',  rating: '4.8', cat: 'rose' },
-  { id: 12, name: 'Marqués de Riscal',   region: 'Rioja',     vintage: '2019', type: 'Rouge · 750ml', price: 26000,  isAlcoholFree: false, image: Image3, badge: null,           rating: '4.7', cat: 'rouge' },
+  {
+    id: 1,
+    name: 'Shiraz 2023',
+    producer: 'Vredenheim 1691',
+    region: 'Stellenbosch',
+    vintage: '2023',
+    type: 'Rouge · 750 ml',
+    price: 8800,
+    alc: '14.9%',
+    isAlcoholFree: false,
+    image: ImgShiraz,
+    badge: 'Gold 2025',
+    rating: '4.8',
+    cat: 'rouge',
+    awards: ['Solo Wine Awards – Gold 2025', 'Veritas Wine Awards'],
+    description: 'Lots of black pepper, pencil shavings and smokiness on the nose, continuing through to the palate making this Shiraz true to cultivar characteristics. Intense and full-rounded mouthfeel of blackcurrant, spices and fynbos. Soft yet firm tannins add to the perfect experience.',
+    pairing: 'Agneau rôti, fromages affinés, plats épicés',
+  },
+  {
+    id: 2,
+    name: 'Merlot 2023',
+    producer: 'Vredenheim 1691',
+    region: 'Stellenbosch',
+    vintage: '2023',
+    type: 'Rouge · 750 ml',
+    price: 9000,
+    alc: '14.2%',
+    isAlcoholFree: false,
+    image: ImgMerlot,
+    badge: 'Gold 2025',
+    rating: '4.7',
+    cat: 'rouge',
+    awards: ['Veritas – Gold 2025'],
+    description: 'The wine opens with a vibrant, fruity berry nose complemented by lingering musk aromas that continue on the palate. Beautifully integrated with subtle wood influences from 16 months of ageing in French barrels.',
+    pairing: 'Bœuf braisé, canard, pâtes bolognaise',
+  },
+  {
+    id: 3,
+    name: 'Sauvignon Blanc 2025',
+    producer: 'Vredenheim 1691',
+    region: 'Stellenbosch',
+    vintage: '2025',
+    type: 'Blanc · 750 ml',
+    price: 8000,
+    alc: '12.5%',
+    isAlcoholFree: false,
+    image: ImgSauvignonBlanc,
+    badge: 'Gold 2025',
+    rating: '4.9',
+    cat: 'blanc',
+    awards: ['Michelangelo International – Gold 2025', 'Mountain Wine Awards – Gold 2025'],
+    description: 'A refreshing Sauvignon Blanc with a tropical core. Peach and white pear aromas develop into a balanced palate with crisp, lingering freshness.',
+    pairing: 'Salades fraîches, poissons grillés, fruits de mer',
+  },
+  {
+    id: 4,
+    name: 'Vredenvonkel 2024',
+    producer: 'Vredenheim 1691',
+    region: 'Stellenbosch',
+    vintage: '2024',
+    type: 'Pétillant Rosé · 750 ml',
+    price: 8500,
+    alc: '13.5%',
+    isAlcoholFree: false,
+    image: ImgSparklingWine,
+    badge: 'Nouveau',
+    rating: '4.8',
+    cat: 'petillant',
+    awards: [],
+    description: 'A vivacious blend of Sauvignon Blanc and Merlot in a pale pink colour, brimming with notes of red berries — strawberry and raspberry. An off-dry sparkling wine balanced by crisp acidity, with candy-floss notes that invite you back sip after sip.',
+    pairing: 'Poulet, bœuf, risottos, fruits et fromages — parfait pour toute célébration',
+  },
+  {
+    id: 5,
+    name: 'Jus de Raisin Blanc',
+    producer: 'Vredenheim 1691',
+    region: 'Stellenbosch',
+    vintage: '2024',
+    type: 'Sans alcool · 750 ml',
+    price: 7000,
+    alc: '0%',
+    isAlcoholFree: true,
+    image: ImgWhiteGrapeJuice,
+    badge: 'Sans alcool',
+    rating: '4.6',
+    cat: 'sans-alcool',
+    awards: [],
+    description: 'Pur jus de raisin blanc Vredenheim, issu des vignes de Stellenbosch. Saveurs fraîches et fruitées, sans alcool, pour toute la famille.',
+    pairing: 'Apéritif, desserts légers, cuisine',
+  },
+  {
+    id: 6,
+    name: 'Jus de Raisin Rouge',
+    producer: 'Vredenheim 1691',
+    region: 'Stellenbosch',
+    vintage: '2024',
+    type: 'Sans alcool · 750 ml',
+    price: 7000,
+    alc: '0%',
+    isAlcoholFree: true,
+    image: ImgRedGrapeJuice,
+    badge: 'Sans alcool',
+    rating: '4.6',
+    cat: 'sans-alcool',
+    awards: [],
+    description: 'Pur jus de raisin rouge Vredenheim, riche en arômes de fruits noirs et de baies. Sans alcool, idéal pour les non-buveurs ou les enfants.',
+    pairing: 'Apéritif, viandes grillées, fromages',
+  },
 ]
 
+// ─── Helpers ─────────────────────────────────────────────────────────────────
 function toggleRegion(r) {
   const i = selectedRegions.value.indexOf(r)
   if (i === -1) selectedRegions.value.push(r)
@@ -246,6 +355,7 @@ function countByCategory(value) {
   return wines.filter(w => w.cat === value).length
 }
 
+// ─── Computed ─────────────────────────────────────────────────────────────────
 const activeFilterCount = computed(() => {
   let n = 0
   if (selectedCategory.value !== 'all') n++
@@ -269,11 +379,11 @@ const filteredWines = computed(() => {
 const sortedWines = computed(() => {
   const arr = [...filteredWines.value]
   switch (sortBy.value) {
-    case 'price-asc':  return arr.sort((a, b) => a.price - b.price)
+    case 'price-asc': return arr.sort((a, b) => a.price - b.price)
     case 'price-desc': return arr.sort((a, b) => b.price - a.price)
-    case 'name':       return arr.sort((a, b) => a.name.localeCompare(b.name))
-    case 'rating':     return arr.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating))
-    default:           return arr
+    case 'name': return arr.sort((a, b) => a.name.localeCompare(b.name))
+    case 'rating': return arr.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating))
+    default: return arr
   }
 })
 

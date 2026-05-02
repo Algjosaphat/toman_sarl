@@ -1,6 +1,6 @@
 <template>
   <!-- Top utility bar -->
-  <div class="hidden md:block bg-[#16336a] text-white/55 text-[11px] tracking-wide border-b border-white/5">
+  <!-- <div class="hidden md:block bg-[#16336a] text-white/55 text-[11px] tracking-wide border-b border-white/5">
     <div class="max-w-screen-2xl mx-auto px-8 lg:px-12 py-2.5 flex items-center justify-between">
       <div class="flex items-center gap-6">
         <span class="flex items-center gap-2">
@@ -24,7 +24,7 @@
         <RouterLink to="/contact" class="hover:text-[#F5C400] transition-colors">Service client</RouterLink>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Main header -->
   <header
@@ -211,12 +211,12 @@ const searchQuery = ref('')
 const cartCount = ref(2)
 
 const navLinks = [
-  { to: '/',                          label: 'Accueil' },
-  { to: '/shop',                      label: 'La Cave' },
-  { to: '/shop?categorie=sans-alcool',label: 'Sans Alcool' },
-  { to: '/selections',                label: 'Sélections' },
-  { to: '/about',                     label: 'Maison' },
-  { to: '/contact',                   label: 'Contact' },
+  { to: '/', label: 'Accueil' },
+  { to: '/shop', label: 'La Cave' },
+  { to: '/shop?categorie=sans-alcool', label: 'Sans Alcool' },
+  { to: '/selections', label: 'Sélections' },
+  { to: '/about', label: 'Maison' },
+  { to: '/contact', label: 'Contact' },
 ]
 
 const searchSuggestions = ['Bordeaux', 'Champagne', 'Bourgogne', 'Sans alcool', 'Coffrets']

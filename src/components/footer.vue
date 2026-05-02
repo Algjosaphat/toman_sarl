@@ -175,35 +175,35 @@ const currentYear = computed(() => new Date().getFullYear())
 
 const socials = [
   { label: 'Instagram', url: 'https://instagram.com', icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>' },
-  { label: 'Facebook',  url: 'https://facebook.com',  icon: '<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>' },
-  { label: 'WhatsApp',  url: 'https://wa.me/22900000000', icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>' },
-  { label: 'TikTok',    url: 'https://tiktok.com',    icon: '<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.65a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.08z"/></svg>' },
+  { label: 'Facebook', url: 'https://facebook.com',  icon: '<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>' },
+  { label: 'WhatsApp', url: 'https://wa.me/22900000000', icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>' },
+  { label: 'TikTok', url: 'https://tiktok.com', icon: '<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.65a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.08z"/></svg>' },
 ]
 
 const trust = [
   { label: 'Authenticité garantie', sub: 'Vins issus de domaines reconnus', icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>' },
-  { label: 'Livraison soignée',     sub: 'Cotonou & environs',              icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM19 17a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM3 5h2l3 12h11l3-9H6"/></svg>' },
-  { label: 'Paiement sécurisé',     sub: 'Carte, Mobile Money, espèces',    icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><rect x="3" y="6" width="18" height="13" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18"/></svg>' },
-  { label: 'Conseil sommelier',     sub: 'Sur demande, gratuit',            icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' },
+  { label: 'Livraison soignée', sub: 'Cotonou & environs', icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM19 17a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM3 5h2l3 12h11l3-9H6"/></svg>' },
+  { label: 'Paiement sécurisé', sub: 'Carte, Mobile Money, espèces', icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><rect x="3" y="6" width="18" height="13" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18"/></svg>' },
+  { label: 'Conseil sommelier', sub: 'Sur demande, gratuit', icon: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' },
 ]
 
 const shopLinks = [
-  { to: '/shop',                       label: 'Tous les vins' },
-  { to: '/shop?categorie=rouge',       label: 'Vins Rouges' },
-  { to: '/shop?categorie=blanc',       label: 'Vins Blancs' },
-  { to: '/shop?categorie=rose',        label: 'Vins Rosés' },
-  { to: '/shop?categorie=champagne',   label: 'Champagnes' },
+  { to: '/shop', label: 'Tous les vins' },
+  { to: '/shop?categorie=rouge', label: 'Vins Rouges' },
+  { to: '/shop?categorie=blanc', label: 'Vins Blancs' },
+  { to: '/shop?categorie=rose', label: 'Vins Rosés' },
+  { to: '/shop?categorie=champagne', label: 'Champagnes' },
   { to: '/shop?categorie=sans-alcool', label: 'Sans Alcool' },
-  { to: '/selections',                 label: 'Coffrets cadeaux' },
+  { to: '/selections', label: 'Coffrets cadeaux' },
 ]
 
 const infoLinks = [
-  { to: '/about',         label: 'Notre Histoire' },
-  { to: '/sommelier',     label: 'Notre Sommelier' },
-  { to: '/livraison',     label: 'Livraison & Retours' },
-  { to: '/faq',           label: 'Foire aux questions' },
-  { to: '/blog',          label: 'Le Journal' },
+  { to: '/about', label: 'Notre Histoire' },
+  { to: '/sommelier', label: 'Notre Sommelier' },
+  { to: '/livraison', label: 'Livraison & Retours' },
+  { to: '/faq', label: 'Foire aux questions' },
+  { to: '/blog', label: 'Le Journal' },
   { to: '/professionnel', label: 'Professionnels' },
-  { to: '/contact',       label: 'Nous Contacter' },
+  { to: '/contact', label: 'Nous Contacter' },
 ]
 </script>
