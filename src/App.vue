@@ -33,7 +33,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
   <!-- WhatsApp floating button -->
   <a
-    href="https://wa.me/22900000000"
+    href="https://wa.me/22966653864"
     target="_blank"
     rel="noopener"
     aria-label="Contacter sur WhatsApp"

@@ -117,8 +117,8 @@
                 </svg>
               </span>
               <div class="flex flex-col">
-                <a href="tel:+22900000000" class="text-white/65 hover:text-[#F5C400] transition-colors no-underline">+229 00 00 00 00</a>
-                <a href="https://wa.me/22900000000" target="_blank" class="text-xs text-[#F5C400]/70 hover:text-[#F5C400] transition-colors no-underline">WhatsApp disponible</a>
+                <a href="tel:+2290166629634" class="text-white/65 hover:text-[#F5C400] transition-colors no-underline">+229 01 66 62 96 34</a>
+                <a href="https://wa.me/22966653864" target="_blank" class="text-xs text-[#F5C400]/70 hover:text-[#F5C400] transition-colors no-underline">WhatsApp disponible</a>
               </div>
             </li>
             <li class="flex items-start gap-3">
