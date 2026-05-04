@@ -58,13 +58,13 @@
 
         <!-- Description -->
         <p class="text-lg lg:text-xl text-white/75 leading-relaxed mb-12 max-w-xl font-light animate-fade-up delay-300">
-          Une cave conçue comme un voyage. Plus de 6 références soigneusement sélectionnées, des grands crus aux cuvées sans alcool, livrées à votre porte au Bénin.
+          Une cave pensée comme un voyage : plus de 6 références soigneusement sélectionnées, des vins avec alcool et sans alcool, livrés directement à votre porte au Bénin.
         </p>
 
         <!-- CTAs -->
         <div class="flex flex-wrap gap-4 mb-16 animate-fade-up delay-400">
           <RouterLink to="/shop" class="btn-primary group">
-            <span>Explorer la cave</span>
+            <span class="text-black">Explorer la cave</span>
             <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
             </svg>
