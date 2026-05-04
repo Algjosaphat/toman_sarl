@@ -152,7 +152,6 @@
               v-for="wine in sortedWines"
               :key="wine.id"
               :wine="wine"
-              @add-to-cart="handleAddToCart"
             />
           </div>
         </div>
@@ -165,15 +164,7 @@
 import { ref, computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import WineCard from '../components/ui/WineCard.vue'
-
-// ─── Product images ──────────────────────────────────────────────────────────
-// Import each bottle image by its original filename (place them in src/assets/wines/)
-import ImgWhiteGrapeJuice from '@/assets/Whit_Grape_Juice_7000F_ss_alcool.jpeg'
-import ImgMerlot from '@/assets/Merlot_2023_9000f.jpeg'
-import ImgRedGrapeJuice from '@/assets/Red_Grape-Juice_7000f_ss_alcool.jpeg'
-import ImgSauvignonBlanc from '@/assets/Sauvignon_blanc_8000f.jpeg'
-import ImgShiraz from '@/assets/Shiraz_2023_8800f.jpeg'
-import ImgSparklingWine from '@/assets/Sparkling_Wine_8500f.jpeg'
+import { products as wines } from '../data/products.js'
 
 const route = useRoute()
 
@@ -203,139 +194,6 @@ const priceRanges = [
 
 const regions = ['Stellenbosch']
 
-// ─── Product catalogue ───────────────────────────────────────────────────────
-/**
- * All prices are expressed in FCFA as shown on the product filenames.
- * Alcohol data is taken from the bottle labels provided.
- *
- * Fields:
- *   id          – unique number
- *   name        – commercial name
- *   producer    – estate / brand
- *   region      – appellation / origin
- *   vintage     – millésime or production year
- *   type        – style descriptor shown under the name
- *   price       – price in FCFA (integer)
- *   alc         – alcohol % (string, "0%" for non-alcoholic)
- *   isAlcoholFree – boolean
- *   image       – imported asset
- *   badge       – promotional chip (null if none)
- *   rating      – display rating out of 5
- *   cat         – category key (must match categories above)
- *   awards      – short award labels (array of strings)
- *   description – tasting / label notes (English)
- *   pairing     – food pairing suggestion
- */
-const wines = [
-  {
-    id: 1,
-    name: 'Shiraz 2023',
-    producer: 'Vredenheim 1691',
-    region: 'Stellenbosch',
-    vintage: '2023',
-    type: 'Rouge · 750 ml',
-    price: 8800,
-    alc: '14.9%',
-    isAlcoholFree: false,
-    image: ImgShiraz,
-    badge: 'Gold 2025',
-    rating: '4.8',
-    cat: 'rouge',
-    awards: ['Solo Wine Awards – Gold 2025', 'Veritas Wine Awards'],
-    description: 'Lots of black pepper, pencil shavings and smokiness on the nose, continuing through to the palate making this Shiraz true to cultivar characteristics. Intense and full-rounded mouthfeel of blackcurrant, spices and fynbos. Soft yet firm tannins add to the perfect experience.',
-    pairing: 'Agneau rôti, fromages affinés, plats épicés',
-  },
-  {
-    id: 2,
-    name: 'Merlot 2023',
-    producer: 'Vredenheim 1691',
-    region: 'Stellenbosch',
-    vintage: '2023',
-    type: 'Rouge · 750 ml',
-    price: 9000,
-    alc: '14.2%',
-    isAlcoholFree: false,
-    image: ImgMerlot,
-    badge: 'Gold 2025',
-    rating: '4.7',
-    cat: 'rouge',
-    awards: ['Veritas – Gold 2025'],
-    description: 'The wine opens with a vibrant, fruity berry nose complemented by lingering musk aromas that continue on the palate. Beautifully integrated with subtle wood influences from 16 months of ageing in French barrels.',
-    pairing: 'Bœuf braisé, canard, pâtes bolognaise',
-  },
-  {
-    id: 3,
-    name: 'Sauvignon Blanc 2025',
-    producer: 'Vredenheim 1691',
-    region: 'Stellenbosch',
-    vintage: '2025',
-    type: 'Blanc · 750 ml',
-    price: 8000,
-    alc: '12.5%',
-    isAlcoholFree: false,
-    image: ImgSauvignonBlanc,
-    badge: 'Gold 2025',
-    rating: '4.9',
-    cat: 'blanc',
-    awards: ['Michelangelo International – Gold 2025', 'Mountain Wine Awards – Gold 2025'],
-    description: 'A refreshing Sauvignon Blanc with a tropical core. Peach and white pear aromas develop into a balanced palate with crisp, lingering freshness.',
-    pairing: 'Salades fraîches, poissons grillés, fruits de mer',
-  },
-  {
-    id: 4,
-    name: 'Vredenvonkel 2024',
-    producer: 'Vredenheim 1691',
-    region: 'Stellenbosch',
-    vintage: '2024',
-    type: 'Pétillant Rosé · 750 ml',
-    price: 8500,
-    alc: '13.5%',
-    isAlcoholFree: false,
-    image: ImgSparklingWine,
-    badge: 'Nouveau',
-    rating: '4.8',
-    cat: 'petillant',
-    awards: [],
-    description: 'A vivacious blend of Sauvignon Blanc and Merlot in a pale pink colour, brimming with notes of red berries — strawberry and raspberry. An off-dry sparkling wine balanced by crisp acidity, with candy-floss notes that invite you back sip after sip.',
-    pairing: 'Poulet, bœuf, risottos, fruits et fromages — parfait pour toute célébration',
-  },
-  {
-    id: 5,
-    name: 'Jus de Raisin Blanc',
-    producer: 'Vredenheim 1691',
-    region: 'Stellenbosch',
-    vintage: '2024',
-    type: 'Sans alcool · 750 ml',
-    price: 7000,
-    alc: '0%',
-    isAlcoholFree: true,
-    image: ImgWhiteGrapeJuice,
-    badge: 'Sans alcool',
-    rating: '4.6',
-    cat: 'sans-alcool',
-    awards: [],
-    description: 'Pur jus de raisin blanc Vredenheim, issu des vignes de Stellenbosch. Saveurs fraîches et fruitées, sans alcool, pour toute la famille.',
-    pairing: 'Apéritif, desserts légers, cuisine',
-  },
-  {
-    id: 6,
-    name: 'Jus de Raisin Rouge',
-    producer: 'Vredenheim 1691',
-    region: 'Stellenbosch',
-    vintage: '2024',
-    type: 'Sans alcool · 750 ml',
-    price: 7000,
-    alc: '0%',
-    isAlcoholFree: true,
-    image: ImgRedGrapeJuice,
-    badge: 'Sans alcool',
-    rating: '4.6',
-    cat: 'sans-alcool',
-    awards: [],
-    description: 'Pur jus de raisin rouge Vredenheim, riche en arômes de fruits noirs et de baies. Sans alcool, idéal pour les non-buveurs ou les enfants.',
-    pairing: 'Apéritif, viandes grillées, fromages',
-  },
-]
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 function toggleRegion(r) {
@@ -391,8 +249,4 @@ const pageTitle = computed(() => {
   const cat = categories.find(c => c.value === selectedCategory.value)
   return cat && cat.value !== 'all' ? cat.label : 'Toute la cave'
 })
-
-function handleAddToCart(wine) {
-  console.log('Ajouté :', wine.name)
-}
 </script>

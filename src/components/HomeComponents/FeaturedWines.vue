@@ -48,7 +48,6 @@
           v-for="wine in filteredWines"
           :key="wine.id"
           :wine="wine"
-          @add-to-cart="handleAddToCart"
         />
       </div>
 
@@ -66,126 +65,24 @@
   </section>
 </template>
 
+
 <script setup>
 import { ref, computed } from 'vue'
 import WineCard from '../ui/WineCard.vue'
-
-import ImgWhiteGrapeJuice from '@/assets/Whit_Grape_Juice_7000F_ss_alcool.jpeg'
-import ImgMerlot from '@/assets/Merlot_2023_9000f.jpeg'
-import ImgRedGrapeJuice from '@/assets/Red_Grape-Juice_7000f_ss_alcool.jpeg'
-import ImgSauvignonBlanc from '@/assets/Sauvignon_blanc_8000f.jpeg'
-import ImgShiraz from '@/assets/Shiraz_2023_8800f.jpeg'
-import ImgSparklingWine from '@/assets/Sparkling_Wine_8500f.jpeg'
+import { products } from '../../data/products.js'
 
 const activeFilter = ref('all')
 
 const filters = [
-  { value: 'all', label: 'Tous' },
-  { value: 'rouge', label: 'Rouges' },
-  { value: 'blanc', label: 'Blancs' },
-  { value: 'petillant', label: 'Pétillants' },
+  { value: 'all',         label: 'Tous' },
+  { value: 'rouge',       label: 'Rouges' },
+  { value: 'blanc',       label: 'Blancs' },
+  { value: 'petillant',   label: 'Pétillants' },
   { value: 'sans-alcool', label: 'Sans alcool' },
 ]
 
-const featuredWines = [
-  {
-    id: 1,
-    name: 'Shiraz 2023',
-    producer: 'Vredenheim 1691',
-    region: 'Stellenbosch',
-    vintage: '2023',
-    type: 'Rouge · 750 ml',
-    price: 8800,
-    alc: '14.9%',
-    isAlcoholFree: false,
-    image: ImgShiraz,
-    badge: 'Gold 2025',
-    rating: '4.8',
-    cat: 'rouge',
-  },
-  {
-    id: 2,
-    name: 'Merlot 2023',
-    producer: 'Vredenheim 1691',
-    region: 'Stellenbosch',
-    vintage: '2023',
-    type: 'Rouge · 750 ml',
-    price: 9000,
-    alc: '14.2%',
-    isAlcoholFree: false,
-    image: ImgMerlot,
-    badge: 'Gold 2025',
-    rating: '4.7',
-    cat: 'rouge',
-  },
-  {
-    id: 3,
-    name: 'Sauvignon Blanc 2025',
-    producer: 'Vredenheim 1691',
-    region: 'Stellenbosch',
-    vintage: '2025',
-    type: 'Blanc · 750 ml',
-    price: 8000,
-    alc: '12.5%',
-    isAlcoholFree: false,
-    image: ImgSauvignonBlanc,
-    badge: 'Gold 2025',
-    rating: '4.9',
-    cat: 'blanc',
-  },
-  {
-    id: 4,
-    name: 'Vredenvonkel 2024',
-    producer: 'Vredenheim 1691',
-    region: 'Stellenbosch',
-    vintage: '2024',
-    type: 'Pétillant Rosé · 750 ml',
-    price: 8500,
-    alc: '13.5%',
-    isAlcoholFree: false,
-    image: ImgSparklingWine,
-    badge: 'Nouveau',
-    rating: '4.8',
-    cat: 'petillant',
-  },
-  {
-    id: 5,
-    name: 'Jus de Raisin Blanc',
-    producer: 'Vredenheim 1691',
-    region: 'Stellenbosch',
-    vintage: '2024',
-    type: 'Sans alcool · 750 ml',
-    price: 7000,
-    alc: '0%',
-    isAlcoholFree: true,
-    image: ImgWhiteGrapeJuice,
-    badge: 'Sans alcool',
-    rating: '4.6',
-    cat: 'sans-alcool',
-  },
-  {
-    id: 6,
-    name: 'Jus de Raisin Rouge',
-    producer: 'Vredenheim 1691',
-    region: 'Stellenbosch',
-    vintage: '2024',
-    type: 'Sans alcool · 750 ml',
-    price: 7000,
-    alc: '0%',
-    isAlcoholFree: true,
-    image: ImgRedGrapeJuice,
-    badge: 'Sans alcool',
-    rating: '4.6',
-    cat: 'sans-alcool',
-  },
-]
-
 const filteredWines = computed(() => {
-  if (activeFilter.value === 'all') return featuredWines
-  return featuredWines.filter(w => w.cat === activeFilter.value)
+  if (activeFilter.value === 'all') return products
+  return products.filter(w => w.cat === activeFilter.value)
 })
-
-function handleAddToCart(wine) {
-  console.log('Ajouté au panier :', wine.name)
-}
 </script>
