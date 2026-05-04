@@ -159,7 +159,7 @@
                 </div>
                 <div>
                   <p class="text-[10px] tracking-[0.25em] uppercase text-[#F5C400] font-semibold mb-1">Téléphone</p>
-                  <a href="tel:+22900000000" class="hover:text-[#F5C400] transition-colors no-underline">+229 00 00 00 00</a>
+                  <a href="tel:+2290166629634" class="hover:text-[#F5C400] transition-colors no-underline">+229 01 66 62 96 34</a>
                 </div>
               </li>
             </ul>
