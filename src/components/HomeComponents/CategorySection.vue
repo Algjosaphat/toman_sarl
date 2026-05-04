@@ -16,7 +16,7 @@
             <span class="italic text-[#22529C]">gammes</span>
           </h2>
           <p class="mt-5 text-stone-600 text-base lg:text-lg max-w-xl leading-relaxed">
-            Quatre univers, une même exigence : vous offrir le meilleur du vin pour chaque moment, chaque palais.
+            Quatre univers, une même exigence : vous offrir le meilleur de Vredenheim pour chaque moment, chaque palais.
           </p>
         </div>
 
@@ -78,43 +78,45 @@
 </template>
 
 <script setup>
-import Image from "../../assets/image.jpeg";
-import Image1 from "../../assets/image1.jpeg";
-import Image2 from "../../assets/image2.jpeg";
-import Image3 from "../../assets/image3.jpeg";
+// import ImgWhiteGrapeJuice from '@/assets/Whit_Grape_Juice_7000F_ss_alcool.jpeg'
+// import ImgMerlot from '@/assets/Merlot_2023_9000f.jpeg'
+import ImgRedGrapeJuice from '@/assets/Red_Grape-Juice_7000f_ss_alcool.jpeg'
+import ImgSauvignonBlanc from '@/assets/Sauvignon_blanc_8000f.jpeg'
+import ImgShiraz from '@/assets/Shiraz_2023_8800f.jpeg'
+import ImgSparklingWine from '@/assets/Sparkling_Wine_8500f.jpeg'
 
 const categories = [
   {
     slug: 'rouge',
     name: 'Vins Rouges',
-    image: Image3,
-    count: 84,
+    image: ImgShiraz,
+    count: 2,
     tagline: 'Caractère',
-    description: "Bordeaux, Bourgogne, Côtes du Rhône. Des terroirs d'exception pour les amateurs avertis."
+    description: 'Shiraz et Merlot de Stellenbosch, primés Gold 2025. Des vins de caractère aux tanins soyeux et aux arômes intenses de fruits noirs et d\'épices.',
   },
   {
     slug: 'blanc',
     name: 'Vins Blancs',
-    image: Image1,
-    count: 56,
+    image: ImgSauvignonBlanc,
+    count: 1,
     tagline: 'Fraîcheur',
-    description: "De la vivacité minérale d'un Chablis à la rondeur d'un Meursault, l'art de l'équilibre."
+    description: 'Notre Sauvignon Blanc 2025, médaillé Gold Michelangelo. Notes tropicales de pêche et poire blanche pour une fraîcheur équilibrée.',
   },
   {
-    slug: 'rose',
-    name: 'Vins Rosés',
-    image: Image2,
-    count: 32,
-    tagline: 'Élégance',
-    description: "L'élégance de la Provence, la délicatesse de la Loire. Pour les beaux jours partagés."
+    slug: 'petillant',
+    name: 'Vins Pétillants',
+    image: ImgSparklingWine,
+    count: 1,
+    tagline: 'Célébration',
+    description: 'Le Vredenvonkel 2024, blend rosé pétillant de Sauvignon Blanc et Merlot. Notes de fraise et framboise — parfait pour toutes les fêtes.',
   },
   {
     slug: 'sans-alcool',
     name: 'Sans Alcool',
-    image: Image,
-    count: 28,
-    tagline: 'Modernité',
-    description: "Toute la complexité du vin, zéro alcool. Une nouvelle élégance pour tous les palais."
-  }
+    image: ImgRedGrapeJuice,
+    count: 2,
+    tagline: 'Pour tous',
+    description: 'Jus de raisin blanc et rouge Vredenheim, 0% alcool. Toute la richesse du terroir de Stellenbosch, accessible à toute la famille.',
+  },
 ]
 </script>

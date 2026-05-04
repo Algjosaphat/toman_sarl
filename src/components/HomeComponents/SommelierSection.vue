@@ -7,42 +7,41 @@
 
         <!-- Left: image with frame -->
         <div class="lg:col-span-6 relative">
-          <!-- Frame decoration -->
           <div class="absolute -top-6 -left-6 w-24 h-24 border-t-2 border-l-2 border-[#F5C400]"></div>
           <div class="absolute -bottom-6 -right-6 w-24 h-24 border-b-2 border-r-2 border-[#F5C400]"></div>
 
           <div class="relative aspect-[4/5] bg-[#22529C]/10 overflow-hidden">
-            <img src="@/assets/image1.jpeg" alt="Notre sommelier" class="w-full h-full object-cover"/>
+            <img src="@/assets/Red_Grape-Juice_7000f_ss_alcool.jpeg" alt="Toman SARL — conseil vin à Cotonou" class="w-full h-full object-cover"/>
             <div class="absolute inset-0 bg-gradient-to-t from-[#0d214a]/40 via-transparent to-transparent"></div>
 
             <!-- Caption -->
             <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
               <div>
-                <p class="text-[10px] tracking-[0.3em] uppercase text-[#F5C400] mb-1 font-semibold">Chef de cave</p>
-                <p class="font-display text-2xl text-white">Sébastien Toman</p>
+                <p class="text-[10px] tracking-[0.3em] uppercase text-[#F5C400] mb-1 font-semibold">Votre caviste</p>
+                <p class="font-display text-2xl text-white">Toman SARL</p>
               </div>
               <div class="px-3 py-1.5 bg-white/90 backdrop-blur-sm text-[#16336a] text-[10px] tracking-widest uppercase font-bold rounded-sm">
-                15 ans d'expérience
+                Cotonou, Bénin
               </div>
             </div>
           </div>
 
-          <!-- Floating stat card -->
+          <!-- Floating review card -->
           <div class="hidden lg:block absolute -bottom-8 -left-8 bg-white border border-stone-200 rounded-sm p-5 shadow-2xl shadow-[#22529C]/15 max-w-xs">
             <div class="flex items-center gap-2 mb-2">
               <div class="flex gap-0.5">
                 <span v-for="i in 5" :key="i" class="text-[#F5C400] text-sm">★</span>
               </div>
-              <span class="text-xs text-stone-500 font-semibold">4.9 / 5</span>
+              <span class="text-xs text-stone-500 font-semibold">4.8 / 5</span>
             </div>
-            <p class="text-sm text-stone-700 leading-relaxed italic">"Un conseil précieux, des sélections pointues. C'est devenu mon caviste de référence."</p>
-            <p class="text-xs text-stone-500 mt-3">— Aïcha K., Cotonou</p>
+            <p class="text-sm text-stone-700 leading-relaxed italic">"Des vins primés Gold, livrés à Cotonou. Un service impeccable et des conseils vraiment utiles."</p>
+            <p class="text-xs text-stone-500 mt-3">— Client Toman SARL, Cotonou</p>
           </div>
         </div>
 
         <!-- Right: content -->
         <div class="lg:col-span-6 lg:pl-8">
-          <span class="eyebrow">Le sommelier</span>
+          <span class="eyebrow">Conseil & service</span>
           <h2 class="font-display text-5xl lg:text-6xl text-[#16336a] leading-[1.05] mt-2 mb-8">
             Un conseil
             <span class="italic text-[#22529C]">à votre table.</span>
@@ -52,7 +51,7 @@
             Choisir un vin ne se résume pas à un prix ou une étiquette. C'est une rencontre entre une bouteille et un moment, un plat, une émotion.
           </p>
           <p class="text-base text-stone-600 leading-relaxed mb-10">
-            Notre chef de cave vous accompagne — par WhatsApp, en boutique, ou lors d'une dégustation privée — pour vous orienter vers la bouteille juste. Sans esbroufe, avec sincérité.
+            Chez Toman SARL, nous vous accompagnons — par WhatsApp, en boutique ou lors d'une dégustation — pour trouver la bouteille Vredenheim qui vous correspond. Sans jargon, avec sincérité.
           </p>
 
           <!-- Services -->
@@ -90,9 +89,9 @@
 
 <script setup>
 const services = [
-  { label: 'Accord mets-vins',     description: 'Suggestions sur mesure pour vos repas et événements.' },
-  { label: 'Choix d\'un cadeau',   description: 'Coffrets et bouteilles d\'exception pour marquer le moment.' },
-  { label: 'Cave personnelle',     description: 'Conseil pour bâtir votre propre cave, à votre rythme.' },
-  { label: 'Dégustation privée',   description: 'À domicile ou en boutique, sur rendez-vous.' },
+  { label: 'Accord mets-vins',   description: 'Suggestions Vredenheim sur mesure pour vos repas et événements.' },
+  { label: 'Choix d\'un cadeau', description: 'La bouteille parfaite pour marquer un moment — livrée à Cotonou.' },
+  { label: 'Cave personnelle',   description: 'Conseil pour constituer votre sélection Vredenheim à votre rythme.' },
+  { label: 'Dégustation privée', description: 'À domicile ou en boutique, sur rendez-vous — découvrez tous nos cépages.' },
 ]
 </script>
