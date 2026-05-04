@@ -104,7 +104,7 @@
                 </a>
               </div>
             </li>
-            <li class="flex items-start gap-3">
+            <!-- <li class="flex items-start gap-3">
               <span class="w-9 h-9 shrink-0 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-[#F5C400]">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 0 0 2.22 0L21 8M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/>
@@ -113,7 +113,7 @@
               <a href="mailto:contact@tomansarl.bj" class="text-white/65 hover:text-[#F5C400] transition-colors no-underline">
                 contact@tomansarl.bj
               </a>
-            </li>
+            </li> -->
             <li class="flex items-start gap-3">
               <span class="w-9 h-9 shrink-0 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-[#F5C400]">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
