@@ -44,7 +44,10 @@
         <h1 class="font-display text-4xl lg:text-8xl md:text-7xl text-white leading-[1.02] mb-8 animate-fade-up delay-100">
           <!-- style="font-size: clamp(3rem, 8vw, 6.5rem);" -->
           L'art du vin,<br/>
-          <span class="italic font-normal text-gradient-gold">sans compromis.</span>
+          <span class="italic font-normal text-[#F5C400]">
+            sans compromis.
+            <!-- text-gradient-gold -->
+          </span>
         </h1>
 
         <!-- Decorative divider -->
