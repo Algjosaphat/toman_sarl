@@ -135,8 +135,12 @@
                 </div>
                 <div>
                   <p class="text-[10px] tracking-[0.25em] uppercase text-[#F5C400] font-semibold mb-1">Adresse</p>
-                  <p>Cotonou, Bénin</p>
-                  <a href="#" class="text-xs text-white/50 hover:text-[#F5C400] transition-colors mt-1 inline-block">Voir sur la carte →</a>
+                  <p>Avotrou, Cotonou · Bénin</p>
+                  <p class="text-sm text-white/60">Voie à droite face à l'hôtel Safari</p>
+                  <a href="https://maps.app.goo.gl/FhE1CSudAJe61EJV7" target="_blank" rel="noopener" class="text-xs text-[#F5C400]/80 hover:text-[#F5C400] transition-colors mt-2 inline-flex items-center gap-1.5 no-underline">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    Itinéraire Google Maps
+                  </a>
                 </div>
               </li>
               <li class="flex items-start gap-4">
@@ -161,14 +165,40 @@
             </ul>
           </div>
 
-          <!-- Map placeholder -->
-          <div class="aspect-[4/3] bg-stone-100 border border-stone-200 rounded-sm overflow-hidden relative">
+          <!-- Map -->
+          <div class="relative aspect-[4/3] bg-stone-100 border border-stone-200 rounded-sm overflow-hidden group">
             <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=2.3585%2C6.3573%2C2.4485%2C6.4173&amp;layer=mapnik"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=2.4747056%2C6.3745461%2C2.4847056%2C6.3845461&amp;layer=mapnik&amp;marker=6.3795461%2C2.4797056"
               class="w-full h-full border-0"
               loading="lazy"
-              title="Boutique Toman Cotonou"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Boutique Toman SARL — Avotrou, Cotonou"
             ></iframe>
+
+            <!-- Address card overlay -->
+            <div class="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-sm border border-stone-200 rounded-sm p-3 flex items-center gap-3 shadow-lg pointer-events-none">
+              <div class="w-9 h-9 shrink-0 rounded-full bg-[#F5C400] text-[#16336a] flex items-center justify-center">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.5-7-12a7 7 0 1 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="font-display text-[#16336a] text-sm leading-tight">Toman SARL</p>
+                <p class="text-xs text-stone-500 truncate">Avotrou, Cotonou · Bénin</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map actions -->
+          <div class="grid grid-cols-2 gap-2 mt-2">
+            <a href="https://maps.app.goo.gl/FhE1CSudAJe61EJV7" target="_blank" rel="noopener"
+               class="flex items-center justify-center gap-2 px-3 py-2.5 bg-white border border-stone-200 hover:border-[#22529C] text-[#22529C] hover:bg-[#22529C] hover:text-white text-xs uppercase tracking-widest font-semibold rounded-sm transition-all no-underline">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 0 1 3 16.382V5.618a1 1 0 0 1 1.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.553 2.776A1 1 0 0 0 22 18.882V8.118a1 1 0 0 0-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+              Itinéraire
+            </a>
+            <a :href="`https://www.openstreetmap.org/?mlat=6.3795461&mlon=2.4797056#map=17/6.3795461/2.4797056`" target="_blank" rel="noopener"
+               class="flex items-center justify-center gap-2 px-3 py-2.5 bg-white border border-stone-200 hover:border-[#22529C] text-[#22529C] hover:bg-[#22529C] hover:text-white text-xs uppercase tracking-widest font-semibold rounded-sm transition-all no-underline">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/></svg>
+              Plus grand
+            </a>
           </div>
 
           <!-- FAQ -->
@@ -234,10 +264,10 @@ const methods = [
   },
   {
     label: 'En boutique',
-    value: 'Cotonou, Bénin la von à droite qui fait face à l\'hôtel safari',
-    subtitle: 'Sans rendez-vous · dégustations sur rdv.',
-    href: '#map',
-    target: '_self',
+    value: 'Avotrou, Cotonou',
+    subtitle: 'Voie à droite face à l\'hôtel Safari · Sans rendez-vous.',
+    href: 'https://maps.app.goo.gl/FhE1CSudAJe61EJV7',
+    target: '_blank',
     icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.5-7-12a7 7 0 1 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>',
   },
 ]

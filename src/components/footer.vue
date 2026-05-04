@@ -96,8 +96,12 @@
                 </svg>
               </span>
               <div>
-                <p class="text-white">Boutique principale</p>
-                <p class="text-xs text-white/45">Cotonou, Bénin</p>
+                <p class="text-white">Avotrou, Cotonou · Bénin</p>
+                <p class="text-xs text-white/45">Voie à droite face à l'hôtel Safari</p>
+                <a href="https://maps.app.goo.gl/FhE1CSudAJe61EJV7" target="_blank" rel="noopener" class="text-xs text-[#F5C400]/80 hover:text-[#F5C400] mt-1 inline-flex items-center gap-1 no-underline transition-colors">
+                  Itinéraire
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
               </div>
             </li>
             <li class="flex items-start gap-3">
