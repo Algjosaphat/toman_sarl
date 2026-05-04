@@ -76,7 +76,7 @@
       <div class="flex items-center gap-2">
 
         <!-- Search -->
-        <button
+        <!-- <button
           class="hidden md:flex items-center justify-center w-10 h-10 rounded-full text-white/70 hover:text-[#F5C400] hover:bg-white/5 transition-all"
           @click="searchOpen = !searchOpen"
           aria-label="Rechercher"
@@ -84,10 +84,10 @@
           <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
           </svg>
-        </button>
+        </button> -->
 
         <!-- Account -->
-        <RouterLink
+        <!-- <RouterLink
           to="/compte"
           class="hidden md:flex items-center justify-center w-10 h-10 rounded-full text-white/70 hover:text-[#F5C400] hover:bg-white/5 transition-all no-underline"
           aria-label="Mon compte"
@@ -95,10 +95,10 @@
           <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
           </svg>
-        </RouterLink>
+        </RouterLink> -->
 
         <!-- Wishlist -->
-        <RouterLink
+        <!-- <RouterLink
           to="/favoris"
           class="hidden md:flex items-center justify-center w-10 h-10 rounded-full text-white/70 hover:text-[#F5C400] hover:bg-white/5 transition-all no-underline"
           aria-label="Favoris"
@@ -106,10 +106,10 @@
           <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
           </svg>
-        </RouterLink>
+        </RouterLink> -->
 
         <!-- Cart -->
-        <RouterLink
+        <!-- <RouterLink
           to="/panier"
           class="ml-2 group flex items-center gap-2.5 px-4 py-2.5 bg-[#F5C400] hover:bg-[#fde08a] text-[#16336a] text-[13px] font-bold rounded-sm transition-all no-underline relative shadow-lg shadow-[#F5C400]/25 hover:shadow-[#F5C400]/40 hover:-translate-y-0.5"
         >
@@ -123,7 +123,7 @@
           >
             {{ cartCount }}
           </span>
-        </RouterLink>
+        </RouterLink> -->
 
         <!-- Burger -->
         <button
@@ -191,10 +191,10 @@
             {{ link.label }}
             <svg class="w-4 h-4 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
           </RouterLink>
-          <div class="py-4 grid grid-cols-2 gap-2">
+          <!-- <div class="py-4 grid grid-cols-2 gap-2">
             <RouterLink to="/compte" @click="menuOpen = false" class="py-3 text-center border border-white/15 text-white/80 text-xs uppercase tracking-wider rounded-sm no-underline">Mon compte</RouterLink>
             <RouterLink to="/contact" @click="menuOpen = false" class="py-3 text-center border border-white/15 text-white/80 text-xs uppercase tracking-wider rounded-sm no-underline">Contact</RouterLink>
-          </div>
+          </div> -->
         </div>
       </div>
     </transition>
@@ -214,7 +214,7 @@ const navLinks = [
   { to: '/', label: 'Accueil' },
   { to: '/shop', label: 'La Cave' },
   { to: '/shop?categorie=sans-alcool', label: 'Sans Alcool' },
-  { to: '/selections', label: 'Sélections' },
+  // { to: '/selections', label: 'Sélections' },
   { to: '/about', label: 'Maison' },
   { to: '/contact', label: 'Contact' },
 ]

@@ -44,12 +44,12 @@
             Caviste de référence à Cotonou. Sélection d'exception de vins fins, spiritueux rares et boissons sans alcool, livrés avec soin partout au Bénin.
           </p>
 
-          <div class="flex items-center gap-2 text-xs text-white/40 mb-6">
+          <!-- <div class="flex items-center gap-2 text-xs text-white/40 mb-6">
             <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-sm">RCCM RB/COT/23-B-35651</span>
             <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded-sm">IFU 320236107117766</span>
-          </div>
+          </div> -->
 
-          <div class="flex items-center gap-2.5">
+          <!-- <div class="flex items-center gap-2.5">
             <a v-for="s in socials" :key="s.label"
               :href="s.url"
               target="_blank" rel="noopener" :aria-label="s.label"
@@ -57,7 +57,7 @@
             >
               <span v-html="s.icon"></span>
             </a>
-          </div>
+          </div> -->
         </div>
 
         <!-- Cave -->
@@ -199,11 +199,11 @@ const shopLinks = [
 
 const infoLinks = [
   { to: '/about', label: 'Notre Histoire' },
-  { to: '/sommelier', label: 'Notre Sommelier' },
-  { to: '/livraison', label: 'Livraison & Retours' },
-  { to: '/faq', label: 'Foire aux questions' },
-  { to: '/blog', label: 'Le Journal' },
-  { to: '/professionnel', label: 'Professionnels' },
+  // { to: '/sommelier', label: 'Notre Sommelier' },
+  // { to: '/livraison', label: 'Livraison & Retours' },
+  // { to: '/faq', label: 'Foire aux questions' },
+  // { to: '/blog', label: 'Le Journal' },
+  // { to: '/professionnel', label: 'Professionnels' },
   { to: '/contact', label: 'Nous Contacter' },
 ]
 </script>

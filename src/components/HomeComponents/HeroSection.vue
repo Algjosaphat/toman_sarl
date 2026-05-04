@@ -55,7 +55,7 @@
 
         <!-- Description -->
         <p class="text-lg lg:text-xl text-white/75 leading-relaxed mb-12 max-w-xl font-light animate-fade-up delay-300">
-          Une cave conçue comme un voyage. Plus de 200 références soigneusement sélectionnées, des grands crus aux cuvées sans alcool, livrées à votre porte au Bénin.
+          Une cave conçue comme un voyage. Plus de 6 références soigneusement sélectionnées, des grands crus aux cuvées sans alcool, livrées à votre porte au Bénin.
         </p>
 
         <!-- CTAs -->
@@ -107,8 +107,8 @@
           <!-- Body -->
           <div class="p-5">
             <p class="text-[10px] tracking-[0.3em] uppercase text-[#F5C400]/80 mb-1">Sélection du chef de cave</p>
-            <h3 class="font-display text-white text-2xl mb-2 leading-tight">Château Margaux 2018</h3>
-            <p class="text-white/50 text-xs mb-5">Bordeaux · Grand Cru Classé · 750ml</p>
+            <h3 class="font-display text-white text-2xl mb-2 leading-tight">Shiraz 2023 ou Merlot 2023</h3>
+            <p class="text-white/50 text-xs mb-5">2023·Rouge · 750 ml</p>
 
             <!-- <div class="flex items-end justify-between pt-4 border-t border-white/10">
               <div>
@@ -154,7 +154,7 @@
 
 <script setup>
 const stats = [
-  { value: '200+', label: 'Références' },
+  { value: '6+', label: 'Références' },
   // { value: '12',   label: 'Pays d\'origine' },
   { value: '4.9',  label: 'Note moyenne' },
 ]
